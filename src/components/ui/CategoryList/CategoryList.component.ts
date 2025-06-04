@@ -1,7 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { ProductService } from '../../../service/productService.service';
 import { environment } from '../../../environments/environment.development';
-import { Products } from '../../../types/productResponseType';
+import { CategoriaResponse } from '../../../types/categoriasResponseType';
 
 @Component({
   selector: 'app-category-list',
@@ -9,20 +9,25 @@ import { Products } from '../../../types/productResponseType';
   templateUrl: './CategoryList.component.html',
   styles: ``,
 })
+
 export class CategoryListComponent { 
   
   http = inject(ProductService)
 
   API_Categorias = environment.API_CATEGORIAS
-  ListadoDeCategorias = signal<Products[]>([])
+  ListadoDeCategorias = signal<CategoriaResponse[]>([])
 
   constructor(){
-
+    this.getTodasLasCategorias()   
   }
-
-
 
   getTodasLasCategorias(){
-    this.ListadoDeCategorias.set(this.http.CargarDatos(this.API_Categorias))
+    
+      this.http.CargarDatos<CategoriaResponse>(this.API_Categorias)
+               .subscribe(categoria => 
+                 this.ListadoDeCategorias.set(categoria) 
+               )
+    
   }
+
  }

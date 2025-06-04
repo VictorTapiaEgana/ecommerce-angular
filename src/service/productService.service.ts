@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable, signal } from '@angular/core';
-import { JsonObject, Products } from '../types/productResponseType';
+import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -10,18 +9,15 @@ import { map } from 'rxjs/operators';
 
 export class ProductService {
 
-  private http = inject(HttpClient)
-  ListadoDeProductos = signal<Products[]>([])
+  private http = inject(HttpClient) 
 
-  constructor() {
-    this.CargarDatos('https://dummyjson.com/products?limit=20')
-  }
-
-  CargarDatos(url:string):Observable<Products[]>{
+  CargarDatos<T>(url:string,key?:string):Observable<T[]>{
      
-    return this.http.get<JsonObject>(url)
+    return this.http.get<any>(url)
                     .pipe(
-                        map(resp => resp.products)
+                        map(resp => key 
+                                    ? resp[key] as T[]
+                                    : resp as T[] )
                     )               
     }
 
