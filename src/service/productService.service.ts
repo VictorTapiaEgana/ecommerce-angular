@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { JsonObject, Products } from '../types/productResponseType';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -15,14 +17,12 @@ export class ProductService {
     this.CargarDatos('https://dummyjson.com/products?limit=20')
   }
 
-  CargarDatos(url:string){
+  CargarDatos(url:string):Observable<Products[]>{
      
-  this.http.get<JsonObject>(url,{
-                            params:{}
-                            }).subscribe(resp => {
-                               this.ListadoDeProductos.set(resp.products)                             
-                            })                 
-
-  }
+    return this.http.get<JsonObject>(url)
+                    .pipe(
+                        map(resp => resp.products)
+                    )               
+    }
 
 }
