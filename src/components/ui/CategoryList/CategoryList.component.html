@@ -1,12 +1,9 @@
-<!-- <section class="bg-black p-3"> -->
-<section class="flex flex-wrap justify-center items-center gap-2 bg-black px-2 py-3">
-    <!-- <section class="flex-wrap justify-center items-center gap-2"> -->
-        @for (categoria of ListadoDeCategorias(); track categoria.name) {            
-           <mat-chip>
-                <span class="text-white">
-                    {{ categoria.name }}
-                </span>                    
-            </mat-chip>             
-        }
-    <!-- </section> -->
+<section class="flex flex-wrap justify-center items-center gap-2 bg-black px-2 py-3">    
+    @for (categoria of ListadoDeCategorias(); track categoria.name) {            
+        <mat-chip>
+            <span class="text-white">
+                {{ categoria.name }}
+            </span>                    
+        </mat-chip>             
+    }            
 </section>

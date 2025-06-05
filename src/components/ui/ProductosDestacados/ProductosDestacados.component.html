@@ -1,0 +1,7 @@
+<section 
+        class="flex justify-center flex-wrap gap-5">        
+        @for (producto of ListaDeProductos(); track $index) {
+           <app-product-card [Producto]="producto"/>
+        }
+
+</section>
