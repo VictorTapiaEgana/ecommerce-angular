@@ -29,16 +29,21 @@
             </p>
         </mat-card-content>
 
-        <mat-card-actions>
+        <mat-card-actions class="flex justify-around items-center">
+
             <mat-chip class="pt-1">
                  <mat-icon style="color: #dc2626;">favorite</mat-icon>
             </mat-chip>
-            <section class="w-full flex justify-end gap-2">
-                <span class="text-right flex justify-end text-lg"> $ {{Producto().price  }}</span>
-                <mat-chip>
-                    <mat-icon>local_mall</mat-icon>
-                </mat-chip>
-            </section>            
+
+            <section class="flex justify-around items-center">
+                <span class="text-right flex justify-end text-lg"> $ {{Producto().price  }}</span>                
+            </section>   
+            
+            
+            <mat-chip (click)="CarritoDeCompras.agregarAlCarrito(Producto(),1)">             
+                <mat-icon>local_mall</mat-icon>
+            </mat-chip>
+
         </mat-card-actions>
 
     </mat-card>

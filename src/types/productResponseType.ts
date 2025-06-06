@@ -1,3 +1,8 @@
+export interface ProductosCarritoType {
+    producto:Products;
+    cantidad:number
+}
+
 export interface Products {
     id: number;
     title: string;

@@ -25,8 +25,8 @@ export class CategoryListComponent {
   getTodasLasCategorias(){
     
       this.http.CargarDatos<CategoriaResponse>(this.API_Categorias)
-               .subscribe(categoria => 
-                 this.ListadoDeCategorias.set(categoria) 
+               .subscribe(categorias => 
+                 this.ListadoDeCategorias.set(categorias) 
                )
     
   }

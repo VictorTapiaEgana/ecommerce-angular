@@ -1,7 +1,8 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import {MatIconModule} from '@angular/material/icon';
 import {MatBadgeModule} from '@angular/material/badge';
 import { ProductService } from '../../../service/productService.service';
+import { CarritoDeCompraService } from '../../../service/CarritoDeCompra.service';
 
 @Component({
   selector: 'nav-bar',
@@ -11,6 +12,14 @@ import { ProductService } from '../../../service/productService.service';
 })
 export class NavBarComponent {
 
-  clientService = inject(ProductService)  
+  CarritO = inject(CarritoDeCompraService)
 
+  TotalProductosCarrito = computed(() =>
+        this.CarritO.ArrayCarritoDeCompras()
+                    .reduce((acc, item) => acc + item.cantidad, 0)
+    
+  )
+
+
+    
  }
