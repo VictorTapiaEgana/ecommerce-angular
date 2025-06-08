@@ -37,11 +37,10 @@
 
             <section class="flex justify-around items-center">
                 <span class="text-right flex justify-end text-lg"> $ {{Producto().price  }}</span>                
-            </section>   
-            
+            </section>               
             
             <mat-chip (click)="CarritoDeCompras.agregarAlCarrito(Producto(),1)">             
-                <mat-icon>local_mall</mat-icon>
+                <mat-icon class="animarCarrito">local_mall</mat-icon>
             </mat-chip>
 
         </mat-card-actions>

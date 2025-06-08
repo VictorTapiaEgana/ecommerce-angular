@@ -1,14 +1,18 @@
 import { Component, computed, inject, signal } from '@angular/core';
-import {MatIconModule} from '@angular/material/icon';
-import {MatBadgeModule} from '@angular/material/badge';
-import { ProductService } from '../../../service/productService.service';
+import { CommonModule } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButton } from '@angular/material/button';
+import {MatDividerModule} from '@angular/material/divider';
+
 import { CarritoDeCompraService } from '../../../service/CarritoDeCompra.service';
 
 @Component({
   selector: 'nav-bar',
-  imports: [MatIconModule,MatBadgeModule],
+  imports: [ MatIconModule, MatBadgeModule, MatMenuModule, CommonModule, MatButton, MatDividerModule],
   templateUrl: './NavBar.component.html',
-  styles: ``,
+  styleUrl:    './NavBar.component.css'
 })
 export class NavBarComponent {
 
@@ -20,6 +24,9 @@ export class NavBarComponent {
     
   )
 
-
+  totalCarrito = computed(()=>
+    this.CarritO.ArrayCarritoDeCompras()
+                .reduce((acc,item)=> acc + (item.producto.price * item.cantidad),0)
+  )
     
  }

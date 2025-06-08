@@ -19,11 +19,13 @@ export class CarritoDeCompraService {
     if (Existe === -1  ){       
 
        this.ArrayCarritoDeCompras.set([...CarritoActual, 
-                                      { producto:productoNuevo,
-                                        cantidad}
-                                      ])
+                                        { producto:productoNuevo,
+                                          cantidad
+                                        }
+                                     ])
       
     } else {
+
       const nuevoCarrito = [...CarritoActual]
 
       nuevoCarrito[Existe] = { ...nuevoCarrito[Existe],
@@ -31,11 +33,8 @@ export class CarritoDeCompraService {
                              }
 
       this.ArrayCarritoDeCompras.set(nuevoCarrito)    
-
             
-    }
-
-    console.log(this.ArrayCarritoDeCompras())
+    }    
      
   }
 

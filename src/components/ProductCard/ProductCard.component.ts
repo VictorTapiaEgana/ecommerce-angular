@@ -13,7 +13,7 @@ import { CarritoDeCompraService } from '../../service/CarritoDeCompra.service';
   selector: 'app-product-card',
   imports: [ MatCardModule, MatChipsModule, MatIcon, MatInputModule, MatButtonModule, CommonModule ],
   templateUrl: './ProductCard.component.html',
-  styles: ``,
+  styleUrl :   './ProductCard.component.css'
 })
 
 export class ProductCardComponent {
@@ -21,5 +21,6 @@ export class ProductCardComponent {
   Producto = input.required<Products>()
 
   CarritoDeCompras  = inject(CarritoDeCompraService)
+
 
  }

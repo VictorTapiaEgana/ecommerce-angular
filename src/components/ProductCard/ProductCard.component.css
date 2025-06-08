@@ -1,0 +1,8 @@
+.animarCarrito {
+  transition: transform 0.3s ease;
+}
+
+.animarCarrito:hover {
+  transform: rotate(15deg);
+}
+/* animacion */

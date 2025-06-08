@@ -21,8 +21,41 @@
       <li><mat-icon fontIcon="person"></mat-icon></li>
       <li><mat-icon fontIcon="favorite"></mat-icon></li>
       <li>
-        <mat-icon fontIcon="local_mall" [matBadge]="TotalProductosCarrito()"></mat-icon>
+        <mat-icon fontIcon="local_mall" 
+                  [matBadge]="TotalProductosCarrito()" 
+                  matButton [matMenuTriggerFor]="menu">
+        </mat-icon>
+        <mat-menu #menu="matMenu" class="p-2 custom-menu border-white border-2">                 
+              <table>
+                <thead>
+                  <tr>
+                    <th>Prod.</th>
+                    <th>Cant.</th>
+                    <th>Precio</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                    @for (producto of CarritO.ArrayCarritoDeCompras() ;track $index) {                              
+                      <tr>
+                        <td>{{ producto.producto.title }}</td> 
+                        <td class="text-center">{{ producto.cantidad }}</td> 
+                        <td class="text-right">${{ producto.producto.price }}</td>
+                      </tr>
+                    }
+                  
+                </tbody>
+              </table>
+              <section class="flex flex-col items-end">
+                <span>$ {{ totalCarrito().toPrecision(4) }} </span>
+                <button class="mini-button" matButton="filled">ir al Carrito</button>
+              </section>
+              
+        </mat-menu>
       </li>
+
+      <li>              
     </ul>
   </section>
+
 </nav>
