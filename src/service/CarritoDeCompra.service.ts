@@ -7,6 +7,10 @@ import { ProductosCarritoType, Products } from '../types/productResponseType';
 
 export class CarritoDeCompraService {
 
+  constructor(){
+     console.log('✅ CarritoDeCompraService creado');
+  }
+
   ArrayCarritoDeCompras = signal<ProductosCarritoType[]>([])
 
   agregarAlCarrito(productoNuevo:Products,cantidad:number){

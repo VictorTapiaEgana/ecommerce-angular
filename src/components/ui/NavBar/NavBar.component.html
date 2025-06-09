@@ -1,23 +1,24 @@
-<nav class="flex flex-wrap w-full bg-black">
-  
-  <section class="hidden min-[1024px]:block w-full sm:w-1/3">
-    <!-- Contenido -->
+<nav class="flex flex-wrap w-full bg-black justify-between px-5">  
+
+  <section>
+      
+       <img
+         src="/banner/banner-1.jpg"                
+         alt="banner"     
+         width="90"
+         height="200"          
+         [routerLink]="['']"
+        />
+      
   </section>
 
-  <!-- Segundo section -->
-  <section
-    class="w-1/2 lg:w-1/3 flex flex-col sm:flex-row justify-center items-center "
-  >      
-  </section>
+
+  <section>
   
-  <!-- Tercer section -->
-  <section
-    class="w-1/2 lg:w-1/3 flex flex-col sm:flex-row justify-end items-center"
-  >
     <ul
-      class="bg-black flex gap-2 text-white p-1 pt-2 justify-end pr-4 sm:pr-10"
+      class="bg-black flex gap-2 text-white p-1 justify-end pr-4 pt-2"
     >
-      <li><mat-icon fontIcon="search"></mat-icon></li>
+      <!-- <li><mat-icon fontIcon="search"></mat-icon></li> -->
       <li><mat-icon fontIcon="person"></mat-icon></li>
       <li>
         <mat-icon fontIcon="favorite"
@@ -52,7 +53,13 @@
               </table>
               <section class="flex flex-col items-end">
                 <span>$ {{ totalCarrito().toPrecision(4) }} </span>
-                <button class="mini-button" matButton="filled">ir al Carrito</button>
+                <!-- <button class="mini-button" matButton="filled">ir al Carrito</button> -->
+                 <button matButton="filled" 
+                         class="mini-button" 
+                         [routerLink]="['/shoppingcart']">
+                         Carrito
+                 </button>
+                   
               </section>
               
         </mat-menu>

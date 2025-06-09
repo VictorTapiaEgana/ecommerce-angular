@@ -5,13 +5,14 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButton } from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
+import { RouterLink } from '@angular/router';
 
 import { CarritoDeCompraService } from '../../../service/CarritoDeCompra.service';
 import { FavoritosService } from '../../../service/favoritos.service';
 
 @Component({
   selector: 'nav-bar',
-  imports: [ MatIconModule, MatBadgeModule, MatMenuModule, CommonModule, MatButton, MatDividerModule],
+  imports: [ MatIconModule, MatBadgeModule, MatMenuModule, CommonModule, MatButton, MatDividerModule, RouterLink],
   templateUrl: './NavBar.component.html',
   styleUrl:    './NavBar.component.css'
 })

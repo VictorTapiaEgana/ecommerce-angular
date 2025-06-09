@@ -9,7 +9,6 @@ import { MatButtonModule }  from '@angular/material/button';
 import { CarritoDeCompraService } from '../../service/CarritoDeCompra.service';
 import { FavoritosService } from '../../service/favoritos.service';
 
-
 @Component({
   selector: 'app-product-card',
   imports: [ MatCardModule, MatChipsModule, MatIcon, MatInputModule, MatButtonModule, CommonModule ],
@@ -27,18 +26,10 @@ export class ProductCardComponent {
   esProductoFavorito(id:number){
 
     const esFav = this.favService.arregloDeFavoritos()
-                                 .findIndex(item => item.id === id) 
+                                 .some(item => item.id === id) 
 
-    // console.log(esFav)
-    if (esFav === -1){
-     return false
-    } else{
-      console.log("lo encontro")
-      return true
-    }
-
+    return esFav
    
   }
-
 
  }

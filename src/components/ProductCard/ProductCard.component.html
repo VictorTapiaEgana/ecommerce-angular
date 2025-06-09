@@ -21,7 +21,7 @@
 
         </mat-card-header>
 
-        <img mat-card-image [src]="Producto().thumbnail" alt="Photo of a Shiba Inu">
+        <img mat-card-image [src]="Producto().thumbnail" [alt]="'Imagen de ' + Producto().title">
 
         <mat-card-content>            
             <p>
@@ -31,8 +31,8 @@
 
         <mat-card-actions class="flex justify-around items-center">
 
-            <mat-chip class="pt-1">                 
-                 <mat-icon (click)="favService.AddFavoritos(Producto().id)"
+            <mat-chip class="pt-1" (click)="favService.AddFavoritos(Producto())">                 
+                 <mat-icon 
                            [ngClass]="{ 'favorito' : esProductoFavorito(Producto().id) } "
                     >favorite
                 </mat-icon>

@@ -1,24 +1,26 @@
 import { Injectable, signal } from '@angular/core';
-
-interface favType {
-  id:number
-}
+import { Products } from '../types/productResponseType';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class FavoritosService {
 
-  arregloDeFavoritos = signal<favType[]>([])
+  constructor(){
+     console.log('✅ FavoritoService creado');
+  }
+
+  arregloDeFavoritos = signal<Products[]>([])
 
   
-  AddFavoritos(id:number){
+  AddFavoritos(producto:Products){
 
-    const esFavorito = this.arregloDeFavoritos().findIndex(fav => fav.id  === id )
+    const esFavorito = this.arregloDeFavoritos().findIndex(fav => fav.id  === producto.id )
 
     if ( esFavorito === -1 ){
-      this.arregloDeFavoritos.update(prev => [...prev, { id }])
-    }
+      this.arregloDeFavoritos.update(prev => [...prev,  producto ])
+    }    
     
   }
 
