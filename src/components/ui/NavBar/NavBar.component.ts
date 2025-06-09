@@ -7,6 +7,7 @@ import { MatButton } from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 
 import { CarritoDeCompraService } from '../../../service/CarritoDeCompra.service';
+import { FavoritosService } from '../../../service/favoritos.service';
 
 @Component({
   selector: 'nav-bar',
@@ -17,6 +18,7 @@ import { CarritoDeCompraService } from '../../../service/CarritoDeCompra.service
 export class NavBarComponent {
 
   CarritO = inject(CarritoDeCompraService)
+  Favoritos = inject(FavoritosService)
 
   TotalProductosCarrito = computed(() =>
         this.CarritO.ArrayCarritoDeCompras()
@@ -28,5 +30,12 @@ export class NavBarComponent {
     this.CarritO.ArrayCarritoDeCompras()
                 .reduce((acc,item)=> acc + (item.producto.price * item.cantidad),0)
   )
+
+  totalFavoritos = computed(()=>
+                  this.Favoritos.arregloDeFavoritos()
+                  .reduce((acc)=> acc + 1, 0 )    
+                  )
+
+  
     
  }

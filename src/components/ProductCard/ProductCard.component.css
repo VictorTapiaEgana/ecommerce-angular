@@ -5,4 +5,7 @@
 .animarCarrito:hover {
   transform: rotate(15deg);
 }
-/* animacion */
+
+.favorito{
+  color: red !important;
+}

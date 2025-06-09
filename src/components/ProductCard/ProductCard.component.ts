@@ -7,6 +7,7 @@ import { MatIcon } from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import { MatButtonModule }  from '@angular/material/button';
 import { CarritoDeCompraService } from '../../service/CarritoDeCompra.service';
+import { FavoritosService } from '../../service/favoritos.service';
 
 
 @Component({
@@ -19,8 +20,25 @@ import { CarritoDeCompraService } from '../../service/CarritoDeCompra.service';
 export class ProductCardComponent {
   
   Producto = input.required<Products>()
+  favService = inject(FavoritosService)
 
   CarritoDeCompras  = inject(CarritoDeCompraService)
+
+  esProductoFavorito(id:number){
+
+    const esFav = this.favService.arregloDeFavoritos()
+                                 .findIndex(item => item.id === id) 
+
+    // console.log(esFav)
+    if (esFav === -1){
+     return false
+    } else{
+      console.log("lo encontro")
+      return true
+    }
+
+   
+  }
 
 
  }

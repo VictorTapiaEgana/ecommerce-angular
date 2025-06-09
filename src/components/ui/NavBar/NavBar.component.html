@@ -19,7 +19,11 @@
     >
       <li><mat-icon fontIcon="search"></mat-icon></li>
       <li><mat-icon fontIcon="person"></mat-icon></li>
-      <li><mat-icon fontIcon="favorite"></mat-icon></li>
+      <li>
+        <mat-icon fontIcon="favorite"
+                   [matBadge]="totalFavoritos()">
+        </mat-icon>        
+      </li>
       <li>
         <mat-icon fontIcon="local_mall" 
                   [matBadge]="TotalProductosCarrito()" 

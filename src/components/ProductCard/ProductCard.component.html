@@ -31,8 +31,11 @@
 
         <mat-card-actions class="flex justify-around items-center">
 
-            <mat-chip class="pt-1">
-                 <mat-icon style="color: #dc2626;">favorite</mat-icon>
+            <mat-chip class="pt-1">                 
+                 <mat-icon (click)="favService.AddFavoritos(Producto().id)"
+                           [ngClass]="{ 'favorito' : esProductoFavorito(Producto().id) } "
+                    >favorite
+                </mat-icon>
             </mat-chip>
 
             <section class="flex justify-around items-center">
