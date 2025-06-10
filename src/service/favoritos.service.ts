@@ -5,11 +5,7 @@ import { Products } from '../types/productResponseType';
   providedIn: 'root'
 })
 
-export class FavoritosService {
-
-  constructor(){
-     console.log('✅ FavoritoService creado');
-  }
+export class FavoritosService {  
 
   arregloDeFavoritos = signal<Products[]>([])
 

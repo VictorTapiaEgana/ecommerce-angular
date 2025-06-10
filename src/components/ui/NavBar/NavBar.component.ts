@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
@@ -16,6 +16,7 @@ import { FavoritosService } from '../../../service/favoritos.service';
   templateUrl: './NavBar.component.html',
   styleUrl:    './NavBar.component.css'
 })
+
 export class NavBarComponent {
 
   CarritO = inject(CarritoDeCompraService)

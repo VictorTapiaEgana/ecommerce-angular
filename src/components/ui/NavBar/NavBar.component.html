@@ -21,16 +21,20 @@
       <li><mat-icon fontIcon="person"></mat-icon></li>
       <li>
         <mat-icon fontIcon="favorite"
-                   [matBadge]="totalFavoritos()"
-                   [matBadgeHidden]="totalFavoritos() === 0">
+                  [matBadge]="totalFavoritos()"
+                  [matBadgeHidden]="totalFavoritos() === 0"
+                  aria-hidden="false"
+                  aria-label="Listado de Favoritos">                   
         </mat-icon>        
       </li>
       <li>
         <mat-icon fontIcon="local_mall" 
-                  matButton 
+                  matButton                   
                   [matBadge]="TotalProductosCarrito()" 
                   [matBadgeHidden]="TotalProductosCarrito() === 0"                  
-                  [matMenuTriggerFor]="TotalProductosCarrito() > 0 ? menu : null">                  
+                  [matMenuTriggerFor]="TotalProductosCarrito() > 0 ? menu : null"
+                  aria-hidden="false"
+                  aria-label="Carrito de compras">                  
         </mat-icon>
         <mat-menu #menu="matMenu" class="p-2 custom-menu border-white border-2">                 
               <table>
