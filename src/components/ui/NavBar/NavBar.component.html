@@ -21,13 +21,16 @@
       <li><mat-icon fontIcon="person"></mat-icon></li>
       <li>
         <mat-icon fontIcon="favorite"
-                   [matBadge]="totalFavoritos()">
+                   [matBadge]="totalFavoritos()"
+                   [matBadgeHidden]="totalFavoritos() === 0">
         </mat-icon>        
       </li>
       <li>
         <mat-icon fontIcon="local_mall" 
+                  matButton 
                   [matBadge]="TotalProductosCarrito()" 
-                  matButton [matMenuTriggerFor]="menu">
+                  [matBadgeHidden]="TotalProductosCarrito() === 0"                  
+                  [matMenuTriggerFor]="TotalProductosCarrito() > 0 ? menu : null">                  
         </mat-icon>
         <mat-menu #menu="matMenu" class="p-2 custom-menu border-white border-2">                 
               <table>
@@ -51,13 +54,21 @@
                 </tbody>
               </table>
               <section class="flex flex-col items-end">
-                <span>$ {{ totalCarrito().toPrecision(4) }} </span>                
+                <span>$ {{ totalCarrito().toPrecision(4) }} </span>                    
+              </section>
+            <section class="flex justify-center">
+              <button matButton="filled"
+                        class="mini-button"                        
+                        style="background-color: blue !important;color: white !important;"
+                        (click)="CarritO.limpiarCarrito()">
+                        limpiar  
+                </button>
                   <button matButton="filled" 
                          class="mini-button" 
                          [routerLink]="['/shoppingcart']">
                          Carrito
-                  </button>                   
-              </section>
+                  </button>               
+            </section>
               
         </mat-menu>
       </li>
