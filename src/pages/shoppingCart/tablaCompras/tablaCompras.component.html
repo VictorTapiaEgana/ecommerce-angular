@@ -1,0 +1,26 @@
+<table style="width: 100%;">
+    <thead class="border-b-1">
+        <tr>
+            <th>Nombre</th>
+            <th class="hidden sm:table-cell">Categoría</th>
+            <th class="hidden md:table-cell">Marca</th>
+            <th>Cantidad</th>
+            <th class="hidden sm:table-cell">Precio</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @for (producto of carrito(); track producto.producto.id) {
+            <tr class="border-b-1 text-center">            
+                <td class="truncate max-w-[120px] text-left">{{ producto.producto.title }} </td>
+                <td class="hidden sm:table-cell">{{ producto.producto.category }}</td>
+                <td class="hidden sm:table-cell">{{ producto.producto.brand }}</td>
+                <td>{{ producto.cantidad }}</td>
+                <td class="hidden sm:table-cell">{{ producto.producto.price }}</td>
+                <td class="text-right sm:text-center">{{ producto.cantidad * producto.producto.price }}</td>
+            </tr>
+        }
+        
+    </tbody>
+</table>

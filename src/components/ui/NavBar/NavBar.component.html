@@ -17,8 +17,7 @@
   
     <ul
       class="bg-black flex gap-2 text-white p-1 justify-end pr-4 pt-2"
-    >
-      <!-- <li><mat-icon fontIcon="search"></mat-icon></li> -->
+    >     
       <li><mat-icon fontIcon="person"></mat-icon></li>
       <li>
         <mat-icon fontIcon="favorite"
@@ -52,14 +51,12 @@
                 </tbody>
               </table>
               <section class="flex flex-col items-end">
-                <span>$ {{ totalCarrito().toPrecision(4) }} </span>
-                <!-- <button class="mini-button" matButton="filled">ir al Carrito</button> -->
-                 <button matButton="filled" 
+                <span>$ {{ totalCarrito().toPrecision(4) }} </span>                
+                  <button matButton="filled" 
                          class="mini-button" 
                          [routerLink]="['/shoppingcart']">
                          Carrito
-                 </button>
-                   
+                  </button>                   
               </section>
               
         </mat-menu>

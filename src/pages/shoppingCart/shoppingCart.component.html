@@ -1,3 +1,15 @@
-<section class="mt-11">
-    <h1> Shopping cart </h1>
-</section>
+<div class="mt-11 max-w flex justify-center flex-col">
+    
+    <section class="w-full text-center">
+          <h1 class="text-3xl my-5"> Detalle de productos </h1>  
+    </section>
+
+    <section class="flex justify-center w-full">
+        <app-tabla-compras 
+                [carrito]="this.carrito.ArrayCarritoDeCompras()"    
+                class="w-full p-2 md:p-14"/>
+    </section>
+
+    <app-datos-de-despacho class="w-full flex justify-center"/>
+
+</div>

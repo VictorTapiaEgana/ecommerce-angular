@@ -5,11 +5,7 @@ import { ProductosCarritoType, Products } from '../types/productResponseType';
   providedIn: 'root'
 })
 
-export class CarritoDeCompraService {
-
-  constructor(){
-     console.log('✅ CarritoDeCompraService creado');
-  }
+export class CarritoDeCompraService {  
 
   ArrayCarritoDeCompras = signal<ProductosCarritoType[]>([])
 
