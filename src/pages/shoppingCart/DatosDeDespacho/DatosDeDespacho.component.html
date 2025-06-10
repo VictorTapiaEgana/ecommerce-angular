@@ -36,9 +36,14 @@
             <!-- Linea 3-->
             <section class="flex flex-wrap flex-col sm:flex-row gap-3 justify-center">
 
-                <button matButton="filled" style="background-color: red;">
+                <button matButton="filled" style="background-color: red;" [routerLink]="''">
                     <mat-icon>close</mat-icon>
                     Cancelar
+                </button>
+
+                <button matButton="filled" style="background-color: blue;" (click)="carrito.limpiarCarrito()">
+                    <mat-icon>cleaning_services</mat-icon>
+                    Limpiar Carrito
                 </button>
 
                 <button matButton="filled" style="background-color: green;">

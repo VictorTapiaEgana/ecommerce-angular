@@ -38,4 +38,8 @@ export class CarritoDeCompraService {
      
   }
 
+  limpiarCarrito(){
+    this.ArrayCarritoDeCompras.set([])
+  }
+
 }
