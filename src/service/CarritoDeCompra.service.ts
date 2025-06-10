@@ -16,7 +16,7 @@ export class CarritoDeCompraService {
     const Existe = this.ArrayCarritoDeCompras()
                        .findIndex(item => item.producto.id  === productoNuevo.id )
     
-    if (Existe === -1  ){       
+    if (Existe === -1 ){       
 
        this.ArrayCarritoDeCompras.set([...CarritoActual, 
                                         { producto:productoNuevo,
@@ -32,8 +32,7 @@ export class CarritoDeCompraService {
                               cantidad:CarritoActual[Existe].cantidad + cantidad
                              }
 
-      this.ArrayCarritoDeCompras.set(nuevoCarrito)    
-            
+      this.ArrayCarritoDeCompras.update(prev => nuevoCarrito)                
     }    
      
   }
