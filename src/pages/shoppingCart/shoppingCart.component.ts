@@ -3,6 +3,9 @@ import { TablaComprasComponent } from "./tablaCompras/tablaCompras.component";
 import { CarritoDeCompraService } from '../../service/CarritoDeCompra.service';
 import { DatosDeDespachoComponent } from "./DatosDeDespacho/DatosDeDespacho.component";
 
+export class AppModule {
+}
+
 @Component({
   selector: 'app-shopping-cart',
   imports: [TablaComprasComponent, DatosDeDespachoComponent],
@@ -11,6 +14,9 @@ import { DatosDeDespachoComponent } from "./DatosDeDespacho/DatosDeDespacho.comp
 })
 export class ShoppingCartComponent {
 
-  carrito = inject(CarritoDeCompraService)
+  carrito = inject(CarritoDeCompraService)  
+
+
+  
 
 } 

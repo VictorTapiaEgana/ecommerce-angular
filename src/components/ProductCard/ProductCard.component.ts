@@ -8,6 +8,7 @@ import {MatInputModule} from '@angular/material/input';
 import { MatButtonModule }  from '@angular/material/button';
 import { CarritoDeCompraService } from '../../service/CarritoDeCompra.service';
 import { FavoritosService } from '../../service/favoritos.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-product-card',
@@ -31,5 +32,35 @@ export class ProductCardComponent {
     return esFav
    
   }
+
+  AddFavoritos(producto:Products){
+    
+    this.favService.AddFavoritos(producto) && this.animacionCarrito()
+
+  }
+
+  animacionCarrito() {
+    Swal.fire({
+      title: '¡Agregado a favoritos!',
+      toast: true,
+      position: 'top',
+      showConfirmButton: false,
+      timer: 1000,
+      timerProgressBar: true,
+      background: '#fff',
+      color: '#333',
+      html: `<img src="/sparks.gif" style="width:60px; height:60px;" />`,
+      icon: undefined, 
+      didOpen: () => {
+        const content = Swal.getHtmlContainer();
+        if (content) {
+          content.style.display = 'flex';
+          content.style.alignItems = 'center';
+          content.style.justifyContent = 'center';
+        }
+      }
+    });
+  }
+
 
  }

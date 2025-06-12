@@ -23,16 +23,16 @@
 
         <img mat-card-image [src]="Producto().thumbnail" [alt]="'Imagen de ' + Producto().title">
 
-        <mat-card-content>            
+        <!-- <mat-card-content>            
             <p>
                {{Producto().description.slice(0,144) }}
             </p>
-        </mat-card-content>
+        </mat-card-content> -->
 
         <mat-card-actions class="flex justify-around items-center">
 
-            <mat-chip class="pt-1" (click)="favService.AddFavoritos(Producto())">                 
-                 <mat-icon 
+            <mat-chip class="pt-1" (click)="AddFavoritos(Producto())">                 
+                 <mat-icon
                           [ngClass]="{ 'favorito' : esProductoFavorito(Producto().id) } "
                     >favorite
                 </mat-icon>
