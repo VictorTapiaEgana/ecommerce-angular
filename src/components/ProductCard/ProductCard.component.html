@@ -11,7 +11,7 @@
 
         <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>{{ Producto().title }}</mat-card-title>
+            <mat-card-title>{{ Producto().title.slice(0,19) }}</mat-card-title>
             
             <mat-card-subtitle>
                 <span class="text-red-500"> 
@@ -25,7 +25,7 @@
 
         <mat-card-content>            
             <p>
-               {{Producto().description}}
+               {{Producto().description.slice(0,144) }}
             </p>
         </mat-card-content>
 
@@ -33,7 +33,7 @@
 
             <mat-chip class="pt-1" (click)="favService.AddFavoritos(Producto())">                 
                  <mat-icon 
-                           [ngClass]="{ 'favorito' : esProductoFavorito(Producto().id) } "
+                          [ngClass]="{ 'favorito' : esProductoFavorito(Producto().id) } "
                     >favorite
                 </mat-icon>
             </mat-chip>

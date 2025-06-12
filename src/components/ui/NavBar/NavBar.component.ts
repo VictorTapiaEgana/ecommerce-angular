@@ -36,8 +36,6 @@ export class NavBarComponent {
   totalFavoritos = computed(()=>
                   this.Favoritos.arregloDeFavoritos()
                   .reduce((acc)=> acc + 1, 0 )    
-                  )
-
-  
+                  )  
     
  }

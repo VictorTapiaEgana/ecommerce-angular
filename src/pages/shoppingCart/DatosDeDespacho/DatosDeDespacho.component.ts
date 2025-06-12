@@ -31,8 +31,9 @@ export class DatosDeDespachoComponent {
   })
 
   ValidarDatos(){
-    
-    console.log(this.formulario.controls.nombre.errors)
+
+    // console.clear() 
+    // console.table(this.formulario.controls.nombre)
 
   }
 
