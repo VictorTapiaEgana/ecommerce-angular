@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { computed, Injectable, signal } from '@angular/core';
 import { Products } from '../types/productResponseType';
 
 @Injectable({
@@ -32,5 +32,10 @@ export class FavoritosService {
     }    
     
   }
+
+  totalFavoritos = computed(()=>
+                  this.arregloDeFavoritos()
+                      .reduce((acc)=> acc + 1, 0 )    
+                  )                    
 
 }

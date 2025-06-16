@@ -3,10 +3,12 @@ import { ProductService } from '../../../service/productService.service';
 import { Products } from '../../../types/productResponseType';
 import { environment } from '../../../environments/environment.development';
 import { ProductCardComponent } from "../../ProductCard/ProductCard.component";
+import { CommonModule } from '@angular/common';
+import { CardSkeletonComponent } from "../../CardSkeleton/CardSkeleton.component";
 
 @Component({
   selector: 'app-productos-destacados',
-  imports: [ProductCardComponent],
+  imports: [ProductCardComponent, CommonModule, CardSkeletonComponent],
   templateUrl: './ProductosDestacados.component.html',
   styles: ``,
 })

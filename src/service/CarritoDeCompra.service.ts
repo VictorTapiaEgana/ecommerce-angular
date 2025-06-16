@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { computed, Injectable, signal } from '@angular/core';
 import { ProductosCarritoType, Products } from '../types/productResponseType';
 
 @Injectable({
@@ -40,5 +40,19 @@ export class CarritoDeCompraService {
   limpiarCarrito(){
     this.ArrayCarritoDeCompras.set([])
   }
+
+  
+  TotalProductosCarrito = computed(() =>
+    this.ArrayCarritoDeCompras()
+        .reduce((acc, item) => acc + item.cantidad, 0)
+    
+  )
+
+  totalCarrito = computed(()=>
+    this.ArrayCarritoDeCompras()
+        .reduce((acc,item)=> acc + (item.producto.price * item.cantidad),0)
+  )
+
+
 
 }

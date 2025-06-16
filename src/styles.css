@@ -2,3 +2,15 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.swal2-timer-progress-bar{
+    background-color:#51eb84;
+}   
+
+.swal2-toast{
+    padding: 0 !important;
+}
+
+.swal2-toast-shown .swal2-container{
+    width: auto !important;
+}

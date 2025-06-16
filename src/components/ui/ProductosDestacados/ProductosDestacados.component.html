@@ -5,10 +5,23 @@
         </h2>
 </section>
 
-<section class="flex justify-center flex-wrap gap-5">              
-  
+<section class="flex justify-center flex-wrap gap-5"> 
+        
+    <ng-container *ngIf="http.cargandoProductos() ; else ListadoDeProductos">
+        
+        <app-card-skeleton /><app-card-skeleton />
+        <app-card-skeleton /><app-card-skeleton />
+        <app-card-skeleton /><app-card-skeleton />
+        <app-card-skeleton /><app-card-skeleton />
+        <app-card-skeleton /><app-card-skeleton />
+        
+    </ng-container>    
+   
+    <ng-template #ListadoDeProductos>
         @for (producto of ListaDeProductos().slice(0,10); track $index) {
            <app-product-card [Producto]="producto"/>
         }
-
+    </ng-template>
+        
+ 
 </section>

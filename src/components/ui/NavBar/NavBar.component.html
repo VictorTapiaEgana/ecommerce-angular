@@ -18,11 +18,17 @@
     <ul
       class="bg-black flex gap-2 text-white p-1 justify-end pr-4 pt-2"
     >     
-      <li><mat-icon fontIcon="person"></mat-icon></li>
       <li>
+        <mat-icon fontIcon="person"
+                  matTooltip="Perfil de usuario"  >          
+        </mat-icon>
+      </li>
+
+      <li>          
         <mat-icon fontIcon="favorite"
-                  [matBadge]="totalFavoritos()"
-                  [matBadgeHidden]="totalFavoritos() === 0"
+                  [matBadge]="Favoritos.totalFavoritos()"
+                  [matBadgeHidden]="Favoritos.totalFavoritos() === 0"                  
+                  [matTooltip]="Favoritos.arregloDeFavoritos().length === 0 ? 'no hay favoritos' : '' "
                   aria-hidden="false"
                   aria-label="Listado de Favoritos">                   
         </mat-icon>        
@@ -30,9 +36,10 @@
       <li>
         <mat-icon fontIcon="local_mall" 
                   matButton                   
-                  [matBadge]="TotalProductosCarrito()" 
-                  [matBadgeHidden]="TotalProductosCarrito() === 0"                  
-                  [matMenuTriggerFor]="TotalProductosCarrito() > 0 ? menu : null"
+                  [matBadge]="CarritO.TotalProductosCarrito()" 
+                  [matBadgeHidden]="CarritO.TotalProductosCarrito() === 0"                  
+                  [matMenuTriggerFor]="CarritO.TotalProductosCarrito() > 0 ? menu : null"                  
+                  [matTooltip]="CarritO.ArrayCarritoDeCompras().length === 0 ? 'Carrito Vacio' : '' "
                   aria-hidden="false"
                   aria-label="Carrito de compras">                  
         </mat-icon>
@@ -58,7 +65,7 @@
                 </tbody>
               </table>
               <section class="flex flex-col items-end">
-                <span>$ {{ totalCarrito().toPrecision(4) }} </span>                    
+                <span>$ {{ CarritO.totalCarrito().toPrecision(4) }} </span>                    
               </section>
             <section class="flex justify-center">
               <button matButton="filled"
@@ -72,8 +79,7 @@
                          [routerLink]="['/shoppingcart']">
                          Carrito
                   </button>               
-            </section>
-              
+            </section>              
         </mat-menu>
       </li>
 

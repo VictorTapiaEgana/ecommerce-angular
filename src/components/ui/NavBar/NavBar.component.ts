@@ -6,13 +6,14 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatButton } from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 import { RouterLink } from '@angular/router';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { CarritoDeCompraService } from '../../../service/CarritoDeCompra.service';
 import { FavoritosService } from '../../../service/favoritos.service';
 
 @Component({
   selector: 'nav-bar',
-  imports: [ MatIconModule, MatBadgeModule, MatMenuModule, CommonModule, MatButton, MatDividerModule, RouterLink],
+  imports: [ MatIconModule, MatBadgeModule, MatMenuModule, CommonModule, MatButton, MatDividerModule, RouterLink, MatTooltipModule],
   templateUrl: './NavBar.component.html',
   styleUrl:    './NavBar.component.css'
 })
@@ -21,21 +22,5 @@ export class NavBarComponent {
 
   CarritO = inject(CarritoDeCompraService)
   Favoritos = inject(FavoritosService)
-
-  TotalProductosCarrito = computed(() =>
-        this.CarritO.ArrayCarritoDeCompras()
-                    .reduce((acc, item) => acc + item.cantidad, 0)
-    
-  )
-
-  totalCarrito = computed(()=>
-    this.CarritO.ArrayCarritoDeCompras()
-                .reduce((acc,item)=> acc + (item.producto.price * item.cantidad),0)
-  )
-
-  totalFavoritos = computed(()=>
-                  this.Favoritos.arregloDeFavoritos()
-                  .reduce((acc)=> acc + 1, 0 )    
-                  )  
-    
+      
  }

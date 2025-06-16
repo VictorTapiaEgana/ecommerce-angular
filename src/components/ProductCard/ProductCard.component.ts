@@ -43,13 +43,13 @@ export class ProductCardComponent {
     Swal.fire({
       title: '¡Agregado a favoritos!',
       toast: true,
-      position: 'top',
+      position: 'center',
       showConfirmButton: false,
       timer: 1000,
       timerProgressBar: true,
       background: '#fff',
-      color: '#333',
-      html: `<img src="/sparks.gif" style="width:60px; height:60px;" />`,
+      color: '#333',      
+      html: `<img src="/sparks.gif" style="width:80px; height:80px;" />`,
       icon: undefined, 
       didOpen: () => {
         const content = Swal.getHtmlContainer();

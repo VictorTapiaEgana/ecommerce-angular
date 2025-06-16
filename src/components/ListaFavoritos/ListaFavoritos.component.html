@@ -1,0 +1,26 @@
+<section >
+    <div class="flex gap-2 items-center justify-center">
+        <mat-icon style="color:red">favorite</mat-icon>
+        <span class="text-2xl text-center">Favoritos</span>
+    </div>
+    <table class="w-full">
+        <thead>
+            <tr class="font-bold border-b-1">
+                <td>Produto</td>
+                <td>Precio</td>
+            </tr>
+        </thead>        
+        <tbody>            
+            @for (item of ListaFavoritos.arregloDeFavoritos(); track item.id) {
+                <tr class="border-b-1">
+                    <td>{{ item.title }}</td>
+                    <td>{{ item.price }}</td>
+                    <td>
+                        <mat-icon>local_mall</mat-icon>
+                    </td>
+                </tr>
+            }
+            
+        </tbody>
+    </table>
+</section>

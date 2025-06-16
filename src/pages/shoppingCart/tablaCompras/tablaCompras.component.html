@@ -1,9 +1,10 @@
+<h1 class="text-2xl my-5 text-center"> Detalle de productos </h1>  
 <table style="width: 100%;">
     <thead class="border-b-1">
         <tr>
             <th>Nombre</th>
             <th class="hidden sm:table-cell">Categoría</th>
-            <th class="hidden md:table-cell">Marca</th>
+            <th class="hidden sm:table-cell">Marca</th>
             <th>Cantidad</th>
             <th class="hidden sm:table-cell">Precio</th>
             <th>Total</th>
@@ -18,9 +19,18 @@
                 <td class="hidden sm:table-cell">{{ producto.producto.brand }}</td>
                 <td>{{ producto.cantidad }}</td>
                 <td class="hidden sm:table-cell">{{ producto.producto.price }}</td>
-                <td class="text-right sm:text-center">{{ producto.cantidad * producto.producto.price }}</td>
+                <td class="text-right sm:text-center">{{ (producto.cantidad * producto.producto.price).toPrecision(4) }}</td>
             </tr>
         }
+
+        <tr>
+            <td>Total</td>
+            <td></td>
+            <td class="hidden sm:table-cell"></td>
+            <td class="hidden sm:table-cell"></td>
+            <td class="hidden sm:table-cell"></td>
+            <td class="text-right sm:text-center text-blue-800 text-lg">{{ total().toPrecision(4) }}</td>
+        </tr>
         
     </tbody>
 </table>

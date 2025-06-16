@@ -1,5 +1,6 @@
-import { Component, input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 import { ProductosCarritoType  } from '../../../types/productResponseType';
+
 
 @Component({
   selector: 'app-tabla-compras',
@@ -10,5 +11,17 @@ import { ProductosCarritoType  } from '../../../types/productResponseType';
 export class TablaComprasComponent { 
 
   carrito = input.required<ProductosCarritoType[]>()
+
+  // total = computed (){
+  //   this.carrito()
+  //       .reduce((total ,prod) => total += prod.cantidad * prod.producto.price, 0 )
+  // }
+
+
+
+  total = computed(()=> 
+        this.carrito()
+          .reduce((total ,prod) => total += prod.cantidad * prod.producto.price, 0 )
+  )
   
 }

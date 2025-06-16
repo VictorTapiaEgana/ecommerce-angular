@@ -1,16 +1,41 @@
-<div class="mt-11 max-w flex justify-center flex-col">
-    
-    <section class="w-full text-center">
-          <h1 class="text-3xl my-5"> Detalle de productos </h1>  
-    </section>    
+<div class="mt-11 max-w flex justify-center flex-col">       
 
-    <section class="flex justify-center w-full">
-        <app-tabla-compras 
-                [carrito]="this.carrito.ArrayCarritoDeCompras()"    
-                class="w-full p-2 md:p-14"/>
-    </section>
+    <ng-container *ngIf="carrito.ArrayCarritoDeCompras().length === 0 ">
+        <h1 class="text-center text-bold text-4xl mb-5">Carrito Vacio</h1>
+        <button matButton="filled" [routerLink]="''">
+            Volver
+        </button>
+    </ng-container>
 
-    <app-datos-de-despacho 
-        class="w-full flex justify-center"/>
+    <ng-container *ngIf="carrito.ArrayCarritoDeCompras().length > 0" >
+
+        <section class="flex justify-center w-full flex-col md:flex-row">
+            <app-tabla-compras 
+                    [carrito]="carrito.ArrayCarritoDeCompras()"    
+                    class="w-full p-2 md:p-14"/>        
+        </section>     
+
+        <section class="flex flex-wrap flex-col sm:flex-row gap-3  justify-center mt-5 px-5">
+
+            <button matButton="filled" style="background-color: red;" [routerLink]="''">
+                <mat-icon>close</mat-icon>
+                Cancelar
+            </button>
+
+            <button matButton="filled" style="background-color: blue;" (click)="carrito.limpiarCarrito()">
+                <mat-icon>cleaning_services</mat-icon>
+                Limpiar Carrito
+            </button>
+
+            <button matButton="filled" style="background-color: green;">
+                <mat-icon>payments</mat-icon>
+                Checkout
+            </button>
+            
+        </section>
+
+    </ng-container>
+
+        
 
 </div>

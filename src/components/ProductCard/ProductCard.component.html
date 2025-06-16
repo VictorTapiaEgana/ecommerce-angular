@@ -5,12 +5,12 @@
         <span 
             class="absolute w-full">
             <span class="bg-red-500 text-white p-1 rounded-tl-lg  relative top-0.5">
-                - {{ Producto().discountPercentage}} %
+                - {{ Producto().discountPercentage }} %
             </span>
         </span>
 
         <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
+            <div mat-card-avatar></div>
             <mat-card-title>{{ Producto().title.slice(0,19) }}</mat-card-title>
             
             <mat-card-subtitle>
@@ -21,7 +21,7 @@
 
         </mat-card-header>
 
-        <img mat-card-image [src]="Producto().thumbnail" [alt]="'Imagen de ' + Producto().title">
+        <img mat-card-image [src]="Producto().thumbnail" height="318" width="320" [alt]="'Imagen de ' + Producto().title">
 
         <!-- <mat-card-content>            
             <p>
