@@ -8,6 +8,7 @@
          width="90"
          height="200"          
          [routerLink]="['']"
+         class="cursor-pointer"
         />
       
   </section>
@@ -20,7 +21,8 @@
     >     
       <li>
         <mat-icon fontIcon="person"
-                  matTooltip="Perfil de usuario"  >          
+                  matTooltip="Perfil de usuario" 
+                  class="cursor-pointer">          
         </mat-icon>
       </li>
 
@@ -28,7 +30,7 @@
         <mat-icon fontIcon="favorite"
                   [matBadge]="Favoritos.totalFavoritos()"
                   [matBadgeHidden]="Favoritos.totalFavoritos() === 0"                  
-                  [matTooltip]="Favoritos.arregloDeFavoritos().length === 0 ? 'no hay favoritos' : '' "
+                  [matTooltip]="Favoritos.arregloDeFavoritos().length === 0 ? 'no hay favoritos' : '' "                  
                   aria-hidden="false"
                   aria-label="Listado de Favoritos">                   
         </mat-icon>        
@@ -40,6 +42,7 @@
                   [matBadgeHidden]="CarritO.TotalProductosCarrito() === 0"                  
                   [matMenuTriggerFor]="CarritO.TotalProductosCarrito() > 0 ? menu : null"                  
                   [matTooltip]="CarritO.ArrayCarritoDeCompras().length === 0 ? 'Carrito Vacio' : '' "
+                  class="cursor-pointer"
                   aria-hidden="false"
                   aria-label="Carrito de compras">                  
         </mat-icon>

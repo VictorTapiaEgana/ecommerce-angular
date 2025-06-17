@@ -1,10 +1,12 @@
 <div class="mt-11 max-w flex justify-center flex-col">       
 
     <ng-container *ngIf="carrito.ArrayCarritoDeCompras().length === 0 ">
-        <h1 class="text-center text-bold text-4xl mb-5">Carrito Vacio</h1>
-        <button matButton="filled" [routerLink]="''">
-            Volver
-        </button>
+       <section class="flex justify-center flex-col items-center">
+            <h1 class="text-center text-bold text-4xl mb-5">Carrito Vacio</h1>
+            <button matButton="filled" [routerLink]="''" class="w-xs" >
+                Volver
+            </button>
+       </section>  
     </ng-container>
 
     <ng-container *ngIf="carrito.ArrayCarritoDeCompras().length > 0" >
