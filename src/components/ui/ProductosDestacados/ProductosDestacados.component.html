@@ -1,7 +1,7 @@
 <section>
         <h2 
           class="text-center text-4xl m-6">
-           Productos Destacados
+           Nuestros Productos
         </h2>
 </section>
 
@@ -18,7 +18,7 @@
     </ng-container>    
    
     <ng-template #ListadoDeProductos>
-        @for (producto of ListaDeProductos().slice(0,10); track $index) {
+        @for (producto of ListaDeProductos(); track $index) {
            <app-product-card [Producto]="producto"/>
         }
     </ng-template>
